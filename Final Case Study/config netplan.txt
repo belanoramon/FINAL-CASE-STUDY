@@ -1,0 +1,24 @@
+sudo nano /etc/netplan/01-netcfg.yaml
+enp0s3:
+      dhcp4: no
+      addresses:
+        - 192.168.1.2/24
+      gateway4: 192.168.1.1
+
+sudo netplan apply
+ifconfig
+ping 192.168.1.1
+nano -/.ssh/config
+Host *
+   Port 22
+   User cisco
+   StrictHostKeyChecking=no
+   UserKnownHostsFile=/dev/null
+   KexAlgorithms +diffie-hellman-group1-sha1
+   Ciphers 3des-cbc
+ssh cisco@192.168.56.1
+ssh cisco@10.0.0.2
+ssh cisco@10.0.0.6
+
+
+
